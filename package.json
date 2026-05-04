@@ -1,0 +1,49 @@
+{
+  "name": "playwright-qa-framework",
+  "version": "1.0.0",
+  "description": "Enterprise-grade Playwright E2E test automation framework",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test --config=config/playwright.config.js",
+    "test:headed": "playwright test --config=config/playwright.config.js --headed",
+    "test:debug": "playwright test --config=config/playwright.config.js --debug",
+    "test:chromium": "playwright test --config=config/playwright.config.js --project=chromium",
+    "test:firefox": "playwright test --config=config/playwright.config.js --project=firefox",
+    "test:webkit": "playwright test --config=config/playwright.config.js --project=webkit",
+    "test:smoke": "playwright test --config=config/playwright.config.js --grep @smoke",
+    "test:regression": "playwright test --config=config/playwright.config.js --grep @regression",
+    "test:negative": "playwright test --config=config/playwright.config.js --grep @negative",
+    "test:e2e": "playwright test --config=config/playwright.config.js --grep @e2e",
+    "test:allure": "playwright test --config=config/playwright.config.js; allure generate allure-results -o allure-report --clean && allure open allure-report",
+    "test:allure:headed": "playwright test --config=config/playwright.config.js --headed; allure generate allure-results -o allure-report --clean && allure open allure-report",
+    "test:allure:smoke": "playwright test --config=config/playwright.config.js --grep @smoke; allure generate allure-results -o allure-report --clean && allure open allure-report",
+    "test:allure:regression": "playwright test --config=config/playwright.config.js --grep @regression; allure generate allure-results -o allure-report --clean && allure open allure-report",
+    "test:allure:e2e": "playwright test --config=config/playwright.config.js --grep @e2e; allure generate allure-results -o allure-report --clean && allure open allure-report",
+    "test:allure:negative": "playwright test --config=config/playwright.config.js --grep @negative; allure generate allure-results -o allure-report --clean && allure open allure-report",
+    "report": "playwright show-report",
+    "allure:generate": "allure generate allure-results -o allure-report --clean",
+    "allure:open": "allure open allure-report",
+    "allure:report": "allure generate allure-results -o allure-report --clean && allure open allure-report",
+    "clean": "rm -rf test-results playwright-report allure-results allure-report logs/test.log"
+  },
+  "keywords": [
+    "playwright",
+    "e2e",
+    "automation",
+    "testing",
+    "qa"
+  ],
+  "author": "Ashish",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "allure-js-commons": "^3.7.1",
+    "allure-playwright": "^3.7.1",
+    "cross-env": "^10.1.0",
+    "dotenv": "^17.4.2"
+  },
+  "dependencies": {
+    "winston": "^3.19.0"
+  }
+}
